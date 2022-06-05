@@ -1,0 +1,40 @@
+<div class="root">
+
+
+  <mat-tab-group animationDuration="100ms">
+
+    <mat-tab label="Un-registered loggers">
+
+      <mat-selection-list [multiple]="false" [(ngModel)]="selectedUnregisteredLogger" class="list">
+        <mat-list-option *ngFor="let logger of unregisteredLoggers" [value]="logger">
+          {{logger.id + ' - ' + (logger?.firstSeen?.toLocaleString() ||'Unknown')}}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <div class="flex-form">
+        <mat-form-field hintLabel="Max 40 characters" appearance="fill">
+          <mat-label>Enter a name for the logger</mat-label>
+          <input matInput #input maxlength="40" [(ngModel)]="loggerName">
+          <mat-hint align="end">{{input.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="onRegisterLogger()" [disabled] = "buttonDisabled()"> Register Logger</button>
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Registered loggers">
+      <mat-selection-list #registeredLoggersUiList [multiple]="false">
+        <mat-list-option *ngFor="let logger of registeredLoggers" [value]="logger">
+          {{logger.name}}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-tab>
+
+
+  </mat-tab-group>
+  <p>
+    Option selected: {{selectedUnregisteredLogger | json}} Logger name: {{loggerName}}
+  </p>
+
+</div>
