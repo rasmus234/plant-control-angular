@@ -16,10 +16,14 @@ export class LoggersComponent implements OnInit {
   unregisteredLoggers?: UnregisteredLogger[];
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  async init() {
     this.loggersService.getRegisteredLoggers().subscribe(loggers => this.registeredLoggers = loggers);
-    this.signalrService.startConnection()
-      .then(() => this.signalrService.getUnregisteredLoggers()
-        .then(unregisteredLoggers => this.unregisteredLoggers = unregisteredLoggers));
+    await this.signalrService.startConnection()
+    await this.signalrService.getUnregisteredLoggers().then(unregisteredLoggers => this.unregisteredLoggers = unregisteredLoggers);
+    await this.signalrService.subscribeToUnregisteredLoggers();
   }
 
   selectedUnregisteredLogger: Logger[] = [];

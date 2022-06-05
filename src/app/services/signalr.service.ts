@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as signalR from "@microsoft/signalr"
 import {UnregisteredLogger} from "./loggers.service";
 
@@ -30,5 +30,19 @@ export class SignalrService {
       this.unregisteredLoggers = unregisteredLoggers;
     })
     return this.unregisteredLoggers;
+  }
+
+  public async subscribeToUnregisteredLoggers() {
+    await this.hubConnection?.send("Subscribe");
+
+    this.hubConnection?.on("NewUnregisteredLogger", (unregisteredLogger: UnregisteredLogger) => {
+      console.log("New unregistered logger: " + unregisteredLogger.id);
+      this.unregisteredLoggers.push(unregisteredLogger);
+    });
+
+    this.hubConnection?.on("RemoveUnregisteredLogger", (id: string) => {
+      console.log("removing logger with id: " + id);
+      this.unregisteredLoggers.splice(this.unregisteredLoggers.findIndex(logger => logger.id === id), 1);
+    });
   }
 }
