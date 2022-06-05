@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as signalR from "@microsoft/signalr"
-import {UnregisteredLogger} from "./loggers.service";
+import {Logger, UnregisteredLogger} from "./loggers.service";
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +44,9 @@ export class SignalrService {
       console.log("removing logger with id: " + id);
       this.unregisteredLoggers.splice(this.unregisteredLoggers.findIndex(logger => logger.id === id), 1);
     });
+  }
+
+  public async registerLogger(logger: UnregisteredLogger): Promise<Logger | undefined> {
+    return this.hubConnection?.invoke<Logger>("RegisterLogger", logger);
   }
 }

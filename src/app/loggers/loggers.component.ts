@@ -26,16 +26,18 @@ export class LoggersComponent implements OnInit {
     await this.signalrService.subscribeToUnregisteredLoggers();
   }
 
-  selectedUnregisteredLogger: Logger[] = [];
+  selectedUnregisteredLogger: UnregisteredLogger[] = [];
   loggerName?: string;
 
   onRegisterLogger(): void {
     if (this.selectedUnregisteredLogger && this.loggerName) {
       const selectedLogger = this.selectedUnregisteredLogger[0];
 
-      this.loggersService
-        .registerLogger({name: this.loggerName, id: selectedLogger._id})
-        .subscribe(logger => this.registeredLoggers?.push(logger));
+      this.signalrService
+        .registerLogger({name: this.loggerName, id: selectedLogger.id})
+        .then(logger => {
+          if (logger) this.registeredLoggers?.push(logger)
+        });
 
       this.loggerName = "";
     }
