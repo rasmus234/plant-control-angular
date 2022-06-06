@@ -21,13 +21,15 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {LoggersService} from "./services/loggers.service";
-import {PairingsComponent} from './pairings/pairings.component';
+import { PairingComponent } from './pairing/pairing.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoggersComponent,
-    PairingsComponent,
+    PairingComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
