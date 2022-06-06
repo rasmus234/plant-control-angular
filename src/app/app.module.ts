@@ -22,14 +22,12 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {LoggersService} from "./services/loggers.service";
 import {PairingsComponent} from './pairings/pairings.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoggersComponent,
     PairingsComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
