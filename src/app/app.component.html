@@ -1,21 +1,19 @@
-
 <p>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" routerLink="/">
+    <span>Plant Control</span>
+
+    <span class="spacer"></span>
+
+    <span class="button-box">
+      <button mat-icon-button matTooltip="Home" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <mat-icon>home</mat-icon>
     </button>
-    <span>Plant Control Administration</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" matTooltip="Administrate Plants">
+
+    <button mat-icon-button matTooltip="Pairings" routerLink="/pairings" routerLinkActive="active">
       <mat-icon>forest</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" matTooltip="Administrate Dataloggers" routerLink="/loggers">
-      <mat-icon>admin_panel_settings</mat-icon>
-    </button>
-
+    </span>
   </mat-toolbar>
-
-
 </p>
 
 <router-outlet></router-outlet>

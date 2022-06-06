@@ -9,11 +9,13 @@ import {SignalrService} from "../services/signalr.service";
 })
 export class LoggersComponent implements OnInit {
 
-  constructor(private loggersService: LoggersService, private signalrService: SignalrService) {
-  }
-
   registeredLoggers?: Logger[];
   unregisteredLoggers?: UnregisteredLogger[];
+  selectedUnregisteredLogger: UnregisteredLogger[] = [];
+  loggerName?: string;
+
+  constructor(private loggersService: LoggersService, private signalrService: SignalrService) {
+  }
 
   ngOnInit(): void {
     this.init();
@@ -25,9 +27,6 @@ export class LoggersComponent implements OnInit {
     await this.signalrService.getUnregisteredLoggers().then(unregisteredLoggers => this.unregisteredLoggers = unregisteredLoggers);
     await this.signalrService.subscribeToUnregisteredLoggers();
   }
-
-  selectedUnregisteredLogger: UnregisteredLogger[] = [];
-  loggerName?: string;
 
   onRegisterLogger(): void {
     if (this.selectedUnregisteredLogger && this.loggerName) {

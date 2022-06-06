@@ -25,6 +25,7 @@ export class LoggersService {
   getRegisteredLoggers() {
     return this.http.get<Logger[]>("http://localhost:3000/loggers");
   }
+
   // getUnregisteredLoggers() {
   //   //return list of uuid
   //   const unregisteredLoggers: UnregisteredLogger[] = [];

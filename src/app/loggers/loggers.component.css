@@ -1,5 +1,4 @@
 
-
 .root {
   display: flex;
   flex-direction: column;
@@ -15,7 +14,7 @@
   justify-content: center;
 }
 
-.flex-form > *{
+.flex-form > * {
   padding: 20px;
   height: 100%;
   margin: 8px;

@@ -8,8 +8,8 @@ import {Logger, UnregisteredLogger} from "./loggers.service";
 export class SignalrService {
 
   public unregisteredLoggers: UnregisteredLogger[] = [];
-  private hubConnection?: signalR.HubConnection
   public isConnected: boolean = false;
+  private hubConnection?: signalR.HubConnection
 
   public async startConnection() {
     this.hubConnection = new signalR.HubConnectionBuilder()
