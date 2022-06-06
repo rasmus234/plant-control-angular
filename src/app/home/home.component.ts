@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   async onSelectionChange(): Promise<void> {
     if (this.selectedPairing) {
-      await this.router.navigate(['pairing'], {state: this.selectedPairing[0]});
+      await this.router.navigate(['pairings', this.selectedPairing[0]._id]);
     }
   }
 }

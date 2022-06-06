@@ -1,3 +1,7 @@
-<mat-selection-list [multiple]="false" (selectionChange)="onSelectionChange()">
-  <mat-list-option *ngFor="let pairing of pairings" [value]="pairing">{{pairing.name}}</mat-list-option>
-</mat-selection-list>
+<h1>Pairings</h1>
+
+<div class="border">
+  <mat-selection-list [(ngModel)]="selectedPairing" [multiple]="false" (selectionChange)="onSelectionChange()">
+    <mat-list-option *ngFor="let pairing of pairings" [value]="pairing">{{pairing.name}}</mat-list-option>
+  </mat-selection-list>
+</div>

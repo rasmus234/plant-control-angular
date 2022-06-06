@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Pairing} from "../../models/pairing.model";
+import {firstValueFrom} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-pairing',
@@ -10,10 +13,11 @@ import {Pairing} from "../../models/pairing.model";
 export class PairingComponent implements OnInit {
   pairing?: Pairing
 
-  constructor(private router: Router) {
-    this.pairing = router.getCurrentNavigation()?.extras.state as Pairing;
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    let id = (await firstValueFrom(this.route.params))['id'];
+    this.pairing = await firstValueFrom(this.http.get<Pairing>(environment.api + 'pairings/' + id));
   }
 }

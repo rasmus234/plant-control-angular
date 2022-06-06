@@ -1,1 +1,39 @@
-<p>Yooo</p>
+<h1>{{pairing?.name}}</h1>
+
+<mat-grid-list cols="2" rowHeight="2em">
+  <mat-grid-tile>ID</mat-grid-tile>
+  <mat-grid-tile>{{pairing?._id || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile>Name</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.name || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile>Created At</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.createdAt || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+
+  <mat-grid-tile>Logger ID</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.logger?._id || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile>Logger Name</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.logger?.name || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+
+  <mat-grid-tile>Plant ID</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.plant?._id || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile>Plant Name</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.plant?.name || '?'}}</mat-grid-tile>
+
+  <mat-grid-tile>Plant Created At</mat-grid-tile>
+  <mat-grid-tile>{{pairing?.plant?.createdAt || '?'}}</mat-grid-tile>
+</mat-grid-list>
+
+<span class="vertical-spacer"></span>
+
+<div class="container">
+  <button color="primary" mat-flat-button>Generate Certificate</button>
+</div>

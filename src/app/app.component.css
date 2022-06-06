@@ -1,16 +1,17 @@
-.active {
-  background-color: navy;
-}
-
-.button-box {
-  display: flex;
-  column-gap: 16px;
-}
-
 .container {
-  padding: 16px;
+  flex-grow: 1;
+
+  margin: 0 auto;
+  padding: 32px;
+  width: 1024px;
+  min-width: 512px;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.wrapper {
+  background-color: whitesmoke;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
 }

@@ -1,21 +1,13 @@
-<p>
+<div class="wrapper">
   <mat-toolbar color="primary">
-    <span>Plant Control</span>
-
-    <span class="spacer"></span>
-
-    <span class="button-box">
-      <button mat-icon-button matTooltip="Home" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      <mat-icon>home</mat-icon>
-    </button>
-
-    <button mat-icon-button matTooltip="Pairings" routerLink="/pairings" routerLinkActive="active">
+    <button mat-button routerLink="/">
       <mat-icon>forest</mat-icon>
-    </button>
-    </span>
-  </mat-toolbar>
-</p>
 
-<div class="container">
-  <router-outlet></router-outlet>
+      <span> Plant Control</span>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
