@@ -21,12 +21,14 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import { PairingComponent } from './pairing/pairing.component';
 import { HomeComponent } from './home/home.component';
+import { CertificateComponent } from './certificate/certificate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PairingComponent,
     HomeComponent,
+    CertificateComponent,
   ],
   imports: [
     BrowserModule,

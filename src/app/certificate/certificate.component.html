@@ -1,0 +1,63 @@
+<h1>{{certificate?._id}}</h1>
+
+<div class="border">
+  <mat-grid-list cols="2" rowHeight="2em">
+    <mat-grid-tile>ID</mat-grid-tile>
+    <mat-grid-tile>{{certificate?._id || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Created At</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.createdAt || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+
+    <mat-grid-tile>Plant ID</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.plant?._id || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Plant Name</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.plant?.name || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Plant Created At</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.plant?.createdAt || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+
+    <mat-grid-tile>Average Temperature</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.temperature?.avg || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Average Humidity</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.humidity?.avg || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Average Moisture</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.moisture?.avg || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+
+    <mat-grid-tile>Min Temperature</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.temperature?.min || '?'}}</mat-grid-tile>
+    <mat-grid-tile>Min Humidity</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.humidity?.min || '?'}}</mat-grid-tile>
+    <mat-grid-tile>Min Moisture</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.moisture?.min || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+
+    <mat-grid-tile>Max Temperature</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.temperature?.max || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Max Humidity</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.humidity?.max || '?'}}</mat-grid-tile>
+
+    <mat-grid-tile>Max Moisture</mat-grid-tile>
+    <mat-grid-tile>{{certificate?.moisture?.max || '?'}}</mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<span class="vertical-spacer"></span>
+
+<div class="container">
+  <button color="primary" mat-flat-button>Print PDF</button>
+</div>
