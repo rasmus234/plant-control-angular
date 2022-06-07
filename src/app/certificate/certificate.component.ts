@@ -23,4 +23,8 @@ export class CertificateComponent implements OnInit {
       error: () => this.router.navigate(['/'])
     })
   }
+
+  print(): void {
+    window.print();
+  }
 }
